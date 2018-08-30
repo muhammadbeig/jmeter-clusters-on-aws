@@ -21,7 +21,7 @@ AWS CLI installed and configured.
 				-region <aws-region>|--set-aws-region <aws-region>
 
 ## AWS Region options
-###Setting AWS region:
+### Setting AWS region:
 				./jmeter-aws.sh --set-aws-region <region>  (currently only us-west and us-east regions are supported)
 			Example:
 				./jmeter-aws.sh --set-aws-region us-west-1
@@ -29,14 +29,14 @@ AWS CLI installed and configured.
 			
 			Default region: us-east-1
 
-###Getting default region:
+### Getting default region:
 				./jmeter-aws.sh --get-default-aws-region
 				Example:
 				./jmeter-aws.sh --get-default-aws-region
 				us-west-1
 
 ## Cluster Creation
-###Creating a default cluster:
+### Creating a default cluster:
 There is one default cluster per aws availability zone (AZ). The default cluster is named "default_useast1a" for us-east-1a AZ and "default_uswest1a" for us-west-1a AZ.
 
 				./jmeter-aws.sh --create-default-cluster --number-of-servers <number>
@@ -50,8 +50,8 @@ Each cluster is created with 1 jmeter client and the number of jmeter servers sp
 				Example (run on jmeter client instance):
 				bash /usr/local/apache-jmeter-2.13/bin/jmeter -n -t test/script.jmx -Jclient.rmi.localport=4001 -R <jmeter-server-1-dns>,<jmeter-server-2-dns>..
 
-###Creating a custom cluster:
-The only thing custom about a "custom cluster" is that its name is chosen by the you (user). Other than that it is the same as a default cluster.
+### Creating a custom/named cluster:
+The only thing custom about a "custom cluster" (named cluster) is that its name is chosen by the you (user). Other than that it is the same as a default cluster.
 
 				./jmeter-aws.sh --create-cluster-called "<alphanumeric-cluster-name>" --number-of-servers <number>
 				e.g.
@@ -60,7 +60,7 @@ The only thing custom about a "custom cluster" is that its name is chosen by the
 				./jmeter-aws.sh -ccc "mytestcluster-uswest" -servers 1
 
 ## Cluster Status
-###Display existing clusters:
+### Display existing clusters:
 				./jmeter-aws.sh --status
 				or 
 				./jmeter-aws.sh -s
@@ -82,7 +82,7 @@ The only thing custom about a "custom cluster" is that its name is chosen by the
 ## Getting ec2-names of instances in a custom cluster:
 If you know about jmeter naming for its nodes when used in distributed mode; there are two modes of a jmeter machine: client and server. A jmeter client serves as a "controller" that is used to issue commands to execute tests. The client uses "jmeter servers" as nodes each of which run the threads of a performance test. For more information about jmeter distributed/remote testing, see http://jmeter.apache.org/usermanual/remote-test.html.
 
-###Get list of servers in a cluster:
+### Get list of servers in a cluster:
 				./jmeter-aws.sh --get-server-instances-from-cluster <cluster-name>
 				or 
 				./jmeter-aws.sh -sic <cluster-name>
@@ -91,7 +91,7 @@ If you know about jmeter naming for its nodes when used in distributed mode; the
 				./jmeter-aws.sh --get-server-instances-from-cluster "myclusterinuseast"
 				ec2-54-85-216-118.compute-1.amazonaws.com,ec2-52-90-63-106.compute-1.amazonaws.com
 
-###Get client in a cluster:
+### Get client in a cluster:
 				./jmeter-aws.sh --get-client-instances-from-cluster <cluster-name>
 				or 
 				./jmeter-aws.sh -cic <cluster-name>
@@ -102,7 +102,7 @@ If you know about jmeter naming for its nodes when used in distributed mode; the
 
 
 ## Getting ec2-names of instances in default clusters:
-###Get list of servers in default cluster:
+### Get list of servers in default cluster:
 				./jmeter-aws.sh --get-server-instances-from-default  
 				or 
 				./jmeter-aws.sh -sid			
@@ -110,7 +110,7 @@ If you know about jmeter naming for its nodes when used in distributed mode; the
 *Note: There is one default cluster per aws availability zone. Set the AWS region before running these commands to specify the region for the default cluster.*
 
 
-###Get client in default cluster:
+### Get client in default cluster:
 				./jmeter-aws.sh --get-client-instances-from-default
 				or 
 				./jmeter-aws.sh -cid
