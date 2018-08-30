@@ -1,4 +1,4 @@
-# jmeteraws; Provisioning apache jmeter (variable size) distributed cluster on amazon cloud
+# jmeteraws; Provisioning apache jmeter cluster (of specified size) on amazon cloud
 
 ## Requirements
 AWS CLI installed and configured.
